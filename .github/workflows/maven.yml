@@ -1,29 +1,27 @@
-name: Java CI with Maven for Bai 4
+name: Java CI for Bai 3
 
 on:
   push:
-    branches: [ "master", "main" ]
-  pull_request:
     branches: [ "master", "main" ]
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
-    # Chỉ định thư mục làm việc mặc định cho job này là Bai9.4
+    # THÊM DÒNG NÀY ĐỂ TRỎ VÀO BÀI 3
     defaults:
       run:
-        working-directory: ./Bai9.4
+        working-directory: ./Bai9.3
 
     steps:
-      - uses: actions/checkout@v3
-
+      - uses: actions/checkout@v4
       - name: Set up JDK 11
-        uses: actions/setup-java@v3
+        uses: actions/setup-java@v4
         with:
-          java-version: '11' # Bạn có thể đổi sang 17 hoặc 8 tùy theo phiên bản Java bạn đang dùng
+          java-version: '11'
           distribution: 'temurin'
           cache: maven
 
-      - name: Build and Test with Maven
-        run: mvn -B package --file pom.xml
+      - name: Build and Test
+        # Lệnh này giờ sẽ chạy bên trong thư mục Bai9.3
+        run: mvn clean test
