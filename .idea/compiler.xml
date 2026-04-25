@@ -7,9 +7,11 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="maven-lab-01" />
-        <module name="bank-system (1)" />
         <module name="bank-system" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="bank-system (1)" target="11" />
+    </bytecodeTargetLevel>
   </component>
 </project>
