@@ -3,7 +3,7 @@ package com.banking;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class SavingAccount extends Account {
+public class SavingsAccount extends Account {
     private static final Logger logger = LoggerFactory.getLogger(SavingAccount.class);
 
     public SavingAccount(String accountNumber, double initialBalance) {
