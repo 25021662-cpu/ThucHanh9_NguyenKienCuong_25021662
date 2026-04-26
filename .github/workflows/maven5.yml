@@ -1,0 +1,36 @@
+name: Java CI for Bai 5 (JaCoCo)
+
+on:
+  push:
+    branches: [ "master" ]
+    paths:
+      - 'Bai9.5/**'
+      - '.github/workflows/maven5.yml'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./Bai9.5
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+          cache: maven
+
+      - name: Chay Test va do coverage voi JaCoCo
+        run: mvn clean verify
+
+      - name: Luu tru bao cao JaCoCo
+        uses: actions/upload-artifact@v4
+        # Luôn upload báo cáo kể cả khi bước trên bị fail do không đủ 80%
+        if: always()
+        with:
+          name: jacoco-coverage-report
+          path: Bai9.5/target/site/jacoco/
