@@ -4,9 +4,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class SavingsAccount extends Account {
-    private static final Logger logger = LoggerFactory.getLogger(SavingAccount.class);
+    private static final Logger logger = LoggerFactory.getLogger(SavingsAccount.class);
 
-    public SavingAccount(String accountNumber, double initialBalance) {
+    public SavingsAccount(String accountNumber, double initialBalance) {
         super(accountNumber, initialBalance);
     }
 
